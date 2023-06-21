@@ -31,11 +31,12 @@ def login():
                 if Users.login_user(conn=my_connection.conn,login=login,password=password)==0:
                     return render_template("index.html")
                 else:
-                    return "<h1>Something went wrong</h1>"
+                    return "<h1>No such user in database</h1>"
             elif status =="author":
                 if Authors.login_author(conn=my_connection.conn,login=login,password=password) == 0:
                     return render_template("index.html")
-                
+                else:
+                    return "<h1>Something went wrong</h1>"     
     return render_template("login.html")
 
 
