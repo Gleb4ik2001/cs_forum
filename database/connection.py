@@ -39,12 +39,12 @@ class Connection:
                 cur.execute("""
                     CREATE TABLE IF NOT EXISTS users(
                         id SERIAL PRIMARY KEY,
-                        login VARCHAR(32) NOT NULL,
+                        login VARCHAR(32) UNIQUE NOT NULL,
                         password VARCHAR(32) NOT NULL
                     );
                     CREATE TABLE IF NOT EXISTS authors(
                         id SERIAL PRIMARY KEY,
-                        login VARCHAR(32) NOT NULL,
+                        login VARCHAR(32) UNIQUE NOT NULL,
                         password VARCHAR(32) NOT NULL
                     );
                     CREATE TABLE IF NOT EXISTS articles(
@@ -55,7 +55,7 @@ class Connection:
                     );
                     CREATE TABLE IF NOT EXISTS authors_articles(
                         author_id INTEGER REFERENCES authors(id),
-                        article_id INTEGER REFERENCES articles(id)
+                        article_id INTEGER UNIQUE REFERENCES articles(id)
                     );
                     CREATE TABLE IF NOT EXISTS users_articles_rating(
                         user_id INTEGER REFERENCES users(id),

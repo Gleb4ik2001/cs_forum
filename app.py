@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session ,request
+from flask import Flask, render_template, session, request, redirect, url_for
 from decouple import config
 from database.connection import Connection
 from database.models.users import Users
@@ -6,7 +6,7 @@ from database.models.authors import Authors
 
 
 app = Flask(__name__)
-
+app.secret_key = "j2h31KL!231l23kh2lkh@#hdfla"
 my_connection:Connection= Connection(
     host = 'localhost',
     port = 5432,
@@ -21,7 +21,7 @@ def index():
 
 
 @app.route("/login",methods=["POST","GET"])
-def login():
+def login_func():
     if request.method=="POST":
         login = str(request.form.get("login"))
         password = str(request.form.get("password"))
@@ -29,12 +29,16 @@ def login():
         if login and password and status:
             if status =="user":
                 if Users.login_user(conn=my_connection.conn,login=login,password=password)==0:
-                    return render_template("index.html")
+                    session["login"] = login
+                    session["password"] = password
+                    return redirect(url_for("index"))
                 else:
                     return "<h1>No such user in database</h1>"
             elif status =="author":
                 if Authors.login_author(conn=my_connection.conn,login=login,password=password) == 0:
-                    return render_template("index.html")
+                    session["login"] = login
+                    session["password"] = password
+                    return redirect(url_for("index"))
                 else:
                     return "<h1>Something went wrong</h1>"     
     return render_template("login.html")
@@ -49,10 +53,10 @@ def registrate():
         if login and password and radio:
             if radio == "user":
                 print(Users.registrate_user(conn=my_connection.conn,login=login,password=password))
-                return render_template("index.html")
+                return redirect(url_for("login_func"))
             elif radio =="author":
                 print(Authors.insert_author(conn=my_connection.conn,login=login,password=password))
-                return render_template("index.html")
+                return redirect(url_for("login_func"))
             else:
                 return "<h1>Something goes wrong,try again</h1>"
     return render_template("registrate.html")
