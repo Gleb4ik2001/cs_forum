@@ -8,6 +8,7 @@ class Connection:
     
     def __init__(
         self,
+<<<<<<< HEAD
         host : str,
         port : int,
         user :str,
@@ -19,14 +20,33 @@ class Connection:
         self.user = user
         self.password = password
         self.dbname = dbname
+=======
+        host,
+        port,
+        username,
+        password,
+        db_name
+    ):
+        self.host = host
+        self.port = port
+        self.username = username
+        self.password = password
+        self.db_name = db_name
+>>>>>>> 2774067a83b8e019cebe881f9c2bd2bc5f91a65a
         self.conn = None
         try:
             self.conn = psycopg2.connect(
                 host = self.host,
                 port = self.port,
+<<<<<<< HEAD
                 user = self.user,
                 password = self.password,
                 dbname = self.dbname,
+=======
+                user = self.username,
+                password = self.password,
+                dbname = self.db_name
+>>>>>>> 2774067a83b8e019cebe881f9c2bd2bc5f91a65a
             )
             self.conn.autocommit = True
             print('Database has been connecnted successfully')
@@ -71,3 +91,15 @@ class Connection:
                 print('All tables successfully created') 
         except Exception as e:
             print("ERROR:",e)
+<<<<<<< HEAD
+=======
+
+# conn=Connection(
+#     host= 'localhost',
+#     port = 5432,
+#     username = 'postgres',
+#     db_name = 'cs_forum',
+#     password='admin'
+# )
+# print(conn.create_table())
+>>>>>>> 2774067a83b8e019cebe881f9c2bd2bc5f91a65a
