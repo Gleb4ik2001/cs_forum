@@ -22,8 +22,10 @@ class Users:
                     );
                 """)
                 print("User", login, "successfully created")
+                return 0
         except Exception as e:
             print("ERROR:",e)
+            return 1
 
             
     @staticmethod
@@ -47,3 +49,4 @@ class Users:
                     return 1
         except Exception as e:
             print("ERROR:",e)
+            return 1

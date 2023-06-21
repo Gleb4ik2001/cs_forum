@@ -25,6 +25,7 @@ class Authors:
                     return 1
         except Exception as e:
             print("ERROR:",e)
+            return 1
 
 
     @staticmethod
@@ -57,8 +58,10 @@ class Authors:
                         return 1
                 else:
                     print("Author already exists")
+                    return 1
         except Exception as e:
             print("ERROR:",e)
+            return 1
         
 
             
