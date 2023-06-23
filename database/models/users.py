@@ -21,7 +21,6 @@ class Users:
                         '{password}'
                     );
                 """)
-                print("User", login, "successfully created")
                 return 0
         except Exception as e:
             print("ERROR:",e)
@@ -41,7 +40,6 @@ class Users:
                 """)
                 result = cur.fetchall()
                 if len(result)>0:
-                    print(result)
                     print("User successfully logged in")
                     return 0
                 else:

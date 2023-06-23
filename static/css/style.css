@@ -1,12 +1,8 @@
 body{
     background-image: url('/static/images/570384.jpg');
     background-repeat: no-repeat;
-<<<<<<< HEAD
     background-position:center center;
     background-size:cover;
-=======
-    /* background-position: center; */
->>>>>>> 2774067a83b8e019cebe881f9c2bd2bc5f91a65a
     background-attachment: fixed;
 }
 #nav{
@@ -36,7 +32,6 @@ body{
     background-color: rgba(137, 43, 226, 0.472);
     margin: auto;
     margin-top: 3%;
-<<<<<<< HEAD
 }
 #login_form{
     width: 500px;
@@ -58,6 +53,33 @@ body{
     font-size: 140%;
     font-weight: 800;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-=======
->>>>>>> 2774067a83b8e019cebe881f9c2bd2bc5f91a65a
+}
+#main_article{
+    width: 1200px;
+    height: 1000px;
+    background-color: rgba(255, 255, 255, 0.396);
+    margin: auto;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5%;
+}
+#article_form{
+    width: 80%;
+    height: 50%;
+    background-color: rgba(86, 199, 34, 0.404);
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 5%;
+}
+#main_authors{
+    width: 1200px;
+    min-height: 200px;
+    background-color: rgba(127, 255, 212, 0.561);
+    margin: auto;
+    margin-top: 3%;
+}
+#main_authors table, td , td{
+    border: 2px solid black;
 }

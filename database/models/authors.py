@@ -63,5 +63,20 @@ class Authors:
             print("ERROR:",e)
             return 1
         
-
+    @staticmethod
+    def get_id(
+        conn:Connection,
+        login:str
+    ):
+        try:
+            with conn.cursor() as cur:
+                cur.execute(f"""
+                    SELECT id FROM authors WHERE login = '{login}'
+                """)
+                res = (cur.fetchall())
+                print("Success")
+                print(res)
+                return int(res[0][0])
+        except Exception as exc:
+            print("ERROR:",exc)
             
