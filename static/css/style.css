@@ -83,3 +83,9 @@ body{
 #main_authors table, td , td{
     border: 2px solid black;
 }
+#article_place{
+    width: 100%;
+    min-height: 200px;
+    height: auto;
+    border: 2px solid black;
+}

@@ -23,7 +23,15 @@
     </nav>
     <main>
         <div id="main">
-            
+            {% if articles %}
+                {% for article in articles %}
+                        <div id="article_place">
+                            <p style="font-weight: 900;"> {{ article[0] }}</p>
+                            <p style="font-weight: 900;"> {{ article[1] }}</p>
+                            <p style="font-weight: 900;"> {{ article[2] }}</p>
+                        </div>
+                {% endfor %}
+            {% endif %}
         </div>
     </main>
 </body>

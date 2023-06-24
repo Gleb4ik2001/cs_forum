@@ -20,7 +20,10 @@ my_connection:Connection= Connection(
 @app.route("/",methods=["POST","GET"])
 def index():
     if "logged_in" in session and session["logged_in"] and session['status']=="user":
-        return render_template("index.html")
+        articles =Articles.get_all_articles(
+            conn=my_connection.conn,
+        )
+        return render_template("index.html",articles = articles)
     elif "logged_in" in session and session["logged_in"] and session['status']=="author":
         return render_template('index_author.html')
     else:
