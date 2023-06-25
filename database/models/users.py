@@ -48,3 +48,18 @@ class Users:
         except Exception as e:
             print("ERROR:",e)
             return 1
+    @staticmethod
+    def get_user_id(
+        conn:Connection,
+        login:str
+    ):
+        try:
+            with conn.cursor() as cur:
+                cur.execute(f"""
+                    SELECT id FROM users WHERE login = '{login}'
+                """)
+                res:list = cur.fetchone()
+                return res
+        except Exception as exc:
+            print("ERROR:",exc)
+            return 1

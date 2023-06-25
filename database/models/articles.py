@@ -37,8 +37,21 @@ class Articles:
         try:
             with conn.cursor() as cur:
                 cur.execute("""
-                    SELECT articles.header, articles.article , authors.login FROM articles
+                    SELECT articles.header, articles.article , authors.login, articles.id FROM articles
                     INNER JOIN authors ON authors.id = articles.author_id;
+                """)
+                res :list= cur.fetchall()
+                return res
+        except Exception as exc:
+            print("ERROR:",exc)
+            return 1
+        
+    @staticmethod
+    def get_articles_id(conn:Connection):
+        try:
+            with conn.cursor() as cur:
+                cur.execute("""
+                    SELECT id FROM articles;
                 """)
                 res :list= cur.fetchall()
                 return res

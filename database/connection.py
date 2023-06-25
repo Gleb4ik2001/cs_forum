@@ -60,7 +60,7 @@ class Connection:
                     CREATE TABLE IF NOT EXISTS users_articles_rating(
                         user_id INTEGER REFERENCES users(id),
                         article_id INTEGER REFERENCES articles(id),
-                        rating INTEGER CHECK(rating >=0 AND rating<=10)
+                        rating INTEGER CHECK(rating >=0 AND rating<=5)
                     );
                     CREATE TABLE IF NOT EXISTS users_articles_comments(
                         user_id INTEGER REFERENCES users(id),
