@@ -25,7 +25,10 @@ def index():
         )
         return render_template("index.html",articles = articles)
     elif "logged_in" in session and session["logged_in"] and session['status']=="author":
-        return render_template('index_author.html')
+        articles =Articles.get_all_articles(
+            conn=my_connection.conn,
+        )
+        return render_template('index_author.html',articles = articles)
     else:
         return redirect(url_for('login_func'))
 

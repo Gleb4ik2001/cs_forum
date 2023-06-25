@@ -29,7 +29,7 @@ body{
     flex-direction: column;
     width: 1200px;
     height:1500px;
-    background-color: rgba(137, 43, 226, 0.472);
+    background-color:white;
     margin: auto;
     margin-top: 3%;
 }
